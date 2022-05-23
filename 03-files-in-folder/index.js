@@ -6,7 +6,8 @@ async function showList() {
         const filesList = await fs.readdir(path.join(__dirname, './secret-folder/'), {withFileTypes: true});
 
         for (const file of filesList) {
-            console.log(file);
+            if(!file.isDirectory())
+                console.log(path.parse(file.name).name + " - " + path.parse(file.name).ext.substring(1) + " - " + (await fs.stat(path.join(__dirname, './secret-folder/', file.name))).size + " bytes");
         }
     } catch (e) {
         console.log(e);

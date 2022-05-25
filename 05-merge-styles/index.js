@@ -3,7 +3,7 @@ const path = require('path');
 
 
 let buffers = [];
-const outputFile = path.join(__dirname, 'bundle.css');
+const outputFile = path.join(__dirname, './project-dist/', 'bundle.css');
 
 async function mergeStyles() {
     try {
